@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:otasuniversties/Resources.dart';
 
 import 'Screens/HomePage.dart';
@@ -14,10 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'OTAS4u',
       theme: ThemeData(
+          textTheme: GoogleFonts.rubikTextTheme(
+            Theme.of(context).textTheme,
+          ),
           primaryColor: AppColors.primaryColor,
           backgroundColor: AppColors.primaryColor),
       home: HomePage(),
     );
   }
 }
-
