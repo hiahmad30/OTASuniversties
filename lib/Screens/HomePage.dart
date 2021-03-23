@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:google_fonts/google_fonts.dart';
 import '../Resources.dart';
-import 'Widgets/buttomNavigation.dart';
+import 'AllStudents.dart';
+import 'Notifications.dart';
+import 'StatePage.dart';
 import 'Widgets/chartWidget.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,6 +15,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+  int _currentIndex = 0;
+  final List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    StatePage(),
+    AllStudents(),
+    Notifications(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,8 +161,8 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Container(
-                    height: 250,
-                    width: 500,
+                    height: Get.height * 0.34,
+                    width: Get.width,
                     child: CustomRoundedBars.withSampleData(),
                   ),
                 ],
@@ -154,33 +172,105 @@ class _HomePageState extends State<HomePage> {
                 flex: 1,
                 child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                              top: 20.0, right: 15, bottom: 20),
-                          child: _getCard(index),
-                        );
-                      },
-                      itemCount: 5,
-                      // SizedBox(
-                      //   width: 5,
-                      // ),
-                      // _getCategoriy(
-                      //   'cat',
-                      // ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _getCard(0, 'Total Apps', '1200'),
+                        _getCard(1, 'Total Paid', '\$25,500'),
+                        _getCard(2, 'Completed', '167')
+                      ],
                     ))),
           ]),
         ),
       ),
-      bottomNavigationBar: ButtomBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+            // _selectedDrawerIndex = index;
+            _onItemTapped(index);
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            activeIcon: ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return RadialGradient(
+                  center: Alignment.topLeft,
+                  radius: 0.5,
+                  colors: <Color>[
+                    Colors.greenAccent[200],
+                    Colors.blueAccent[200]
+                  ],
+                  tileMode: TileMode.repeated,
+                ).createShader(bounds);
+              },
+              child: Icon(Icons.home_rounded),
+            ),
+            icon: new Icon(Icons.home_rounded, color: Colors.grey),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            activeIcon: ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return RadialGradient(
+                  center: Alignment.topLeft,
+                  radius: 1.0,
+                  colors: <Color>[
+                    Colors.greenAccent[200],
+                    Colors.blueAccent[200]
+                  ],
+                  tileMode: TileMode.mirror,
+                ).createShader(bounds);
+              },
+              child: Icon(Icons.monitor),
+            ),
+            icon: Icon(Icons.monitor, color: Colors.grey),
+            label: 'Stats',
+          ),
+          BottomNavigationBarItem(
+            activeIcon: ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return RadialGradient(
+                  center: Alignment.topLeft,
+                  radius: 1.0,
+                  colors: <Color>[
+                    Colors.greenAccent[200],
+                    Colors.blueAccent[200]
+                  ],
+                  tileMode: TileMode.mirror,
+                ).createShader(bounds);
+              },
+              child: Icon(Icons.account_circle),
+            ),
+            icon: Icon(Icons.account_circle, color: Colors.grey),
+            label: 'Students',
+          ),
+          BottomNavigationBarItem(
+            // activeIcon: ShaderMask(
+            //   shaderCallback: (Rect bounds) {
+            //     return RadialGradient(
+            //       center: Alignment.topLeft,
+            //       radius: 1.0,
+            //       colors: <Color>[
+            //         Colors.greenAccent[200],
+            //         Colors.blueAccent[200]
+            //       ],
+            //       tileMode: TileMode.mirror,
+            //     ).createShader(bounds);
+            //   },
+            //   child: Icon(Icons.notifications_outlined),
+            // ),
+            icon: Icon(Icons.notifications_outlined, color: Colors.grey),
+            label: 'Notifications',
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _getCard(
-    int cardno,
-  ) {
+  Widget _getCard(int cardno, String text, String figure) {
     return InkWell(
       onTap: () {},
       child: Container(
@@ -215,11 +305,11 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Text(
-                    'Total Apps',
+                    '$text',
                     style: TextStyle(color: AppColors.cardTextColor),
                   ),
                   Text(
-                    '12,554',
+                    '$figure',
                     style: TextStyle(
                         color: AppColors.cardTextColor,
                         fontWeight: FontWeight.bold),
