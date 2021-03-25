@@ -236,8 +236,8 @@ class _HomePageState extends State<HomePage> {
                   center: Alignment.topLeft,
                   radius: 1.0,
                   colors: <Color>[
-                    Colors.greenAccent[200],
-                    Colors.blueAccent[200]
+                    AppColors.primaryColor,
+                    AppColors.primaryColor,
                   ],
                   tileMode: TileMode.mirror,
                 ).createShader(bounds);

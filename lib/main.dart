@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:otasuniversties/Resources.dart';
+import 'package:otasuniversties/Screens/LoginScreen.dart';
 
 import 'Screens/HomePage.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           ),
           primaryColor: AppColors.primaryColor,
           backgroundColor: AppColors.primaryColor),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
