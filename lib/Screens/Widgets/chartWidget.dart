@@ -1,7 +1,6 @@
 /// Bar chart example
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import 'package:otasuniversties/Resources.dart';
 
 class CustomRoundedBars extends StatelessWidget {
   final List<charts.Series> seriesList;
