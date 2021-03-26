@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:otasuniversties/Resources.dart';
 import 'package:otasuniversties/Screens/LoginScreen.dart';
 
-
+import 'Screens/HomePage.dart';
+import 'Screens/Widgets/ButtomBar.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           ),
           primaryColor: AppColors.primaryColor,
           backgroundColor: AppColors.primaryColor),
-      home: LoginPage(),
+      home: BottomBar(),
     );
   }
 }
