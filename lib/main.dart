@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:otasuniversties/Resources.dart';
 import 'package:otasuniversties/Screens/LoginScreen.dart';
 
-import 'Screens/HomePage.dart';
+
 
 void main() {
   runApp(MyApp());
