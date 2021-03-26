@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:otasuniversties/Resources.dart';
 
 import '../AllStudents.dart';
 import '../HomePage.dart';
@@ -15,6 +16,7 @@ class _BottomBarState extends State<BottomBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
   int _currentIndex = 0;
+
   final List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     StatePage(),
@@ -53,10 +55,11 @@ class _BottomBarState extends State<BottomBar> {
                   tileMode: TileMode.repeated,
                 ).createShader(bounds);
               },
-              child: Icon(Icons.home_rounded),
+              child: Icon(Icons.home_rounded, color: AppColors.primaryColor),
             ),
             icon: new Icon(Icons.home_rounded, color: Colors.grey),
-            label: 'Home',
+            title: Text('Home'),
+            // label: 'Home'
           ),
           BottomNavigationBarItem(
             activeIcon: ShaderMask(
@@ -65,16 +68,18 @@ class _BottomBarState extends State<BottomBar> {
                   center: Alignment.topLeft,
                   radius: 1.0,
                   colors: <Color>[
-                    Colors.greenAccent[200],
-                    Colors.blueAccent[200]
+                    AppColors.primaryColor,
+                    AppColors.primaryColor,
                   ],
-                  tileMode: TileMode.mirror,
+                  // tileMode: TileMode.mirror,
                 ).createShader(bounds);
               },
-              child: Icon(Icons.monitor),
+              child: Icon(
+                Icons.monitor,
+              ),
             ),
             icon: Icon(Icons.monitor, color: Colors.grey),
-            label: 'Stats',
+            title: Text('Stats'),
           ),
           BottomNavigationBarItem(
             activeIcon: ShaderMask(
@@ -83,8 +88,8 @@ class _BottomBarState extends State<BottomBar> {
                   center: Alignment.topLeft,
                   radius: 1.0,
                   colors: <Color>[
-                    Colors.greenAccent[200],
-                    Colors.blueAccent[200]
+                    AppColors.primaryColor,
+                    AppColors.primaryColor,
                   ],
                   tileMode: TileMode.mirror,
                 ).createShader(bounds);
@@ -92,25 +97,28 @@ class _BottomBarState extends State<BottomBar> {
               child: Icon(Icons.account_circle),
             ),
             icon: Icon(Icons.account_circle, color: Colors.grey),
-            label: 'Students',
+            title: Text('Students'),
           ),
           BottomNavigationBarItem(
-            // activeIcon: ShaderMask(
-            //   shaderCallback: (Rect bounds) {
-            //     return RadialGradient(
-            //       center: Alignment.topLeft,
-            //       radius: 1.0,
-            //       colors: <Color>[
-            //         Colors.greenAccent[200],
-            //         Colors.blueAccent[200]
-            //       ],
-            //       tileMode: TileMode.mirror,
-            //     ).createShader(bounds);
-            //   },
-            //   child: Icon(Icons.notifications_outlined),
-            // ),
+            activeIcon: ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return RadialGradient(
+                  center: Alignment.topLeft,
+                  radius: 1.0,
+                  colors: <Color>[
+                    AppColors.primaryColor,
+                    AppColors.primaryColor,
+                  ],
+                  tileMode: TileMode.mirror,
+                ).createShader(bounds);
+              },
+              child: Icon(
+                Icons.notifications_outlined,
+                color: AppColors.primaryColor,
+              ),
+            ),
             icon: Icon(Icons.notifications_outlined, color: Colors.grey),
-            label: 'Notifications',
+            title: Text('Notifications'),
           ),
         ],
       ),
