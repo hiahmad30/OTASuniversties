@@ -6,12 +6,12 @@ import '../HomePage.dart';
 import '../Notifications.dart';
 import '../StatePage.dart';
 
-class BottomBar extends StatefulWidget {
+class BottomBarPage extends StatefulWidget {
   @override
-  _BottomBarState createState() => _BottomBarState();
+  _BottomBarPageState createState() => _BottomBarPageState();
 }
 
-class _BottomBarState extends State<BottomBar> {
+class _BottomBarPageState extends State<BottomBarPage> {
   Widget selectedWidget = HomePage();
   static const TextStyle optionStyle =
       TextStyle(fontSize: 20, fontWeight: FontWeight.bold);

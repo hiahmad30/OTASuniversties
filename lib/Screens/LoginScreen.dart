@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:otasuniversties/Resources.dart';
+import 'package:otasuniversties/Screens/Widgets/ButtomBar.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -154,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                             "Sign In",
                           ),
                           onPressed: () {
-                            Get.to(BottomAppBar());
+                            Get.to(BottomBarPage());
                           },
                           shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(10.0),
