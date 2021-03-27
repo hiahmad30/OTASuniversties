@@ -36,13 +36,16 @@ class _LoginPageState extends State<LoginPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Welcome Back",
+                            "Welcome back",
                             style: TextStyle(
                                 color: AppColors.primaryColor,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text("Please enter your username and password"),
+                          Text(
+                            "Please enter your username and password",
+                            style: TextStyle(),
+                          ),
                         ],
                       ),
                     ),
@@ -69,7 +72,8 @@ class _LoginPageState extends State<LoginPage> {
                               hintText: "Ahmet Süngeriçlioğlu",
                               //  hintStyle: MyResources.hintfontStyle,
                               border: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide:
+                                    BorderSide(color: Colors.transparent),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               suffixIcon: IconButton(
@@ -163,9 +167,13 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 8.0, left: 40),
-              child: Container(
-                child: Text('Sign in'),
+              padding: const EdgeInsets.only(top: 39.0, left: 30),
+              child: Text(
+                'Sign in',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],
