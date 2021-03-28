@@ -64,19 +64,25 @@ class _StudentProfileState extends State<StudentProfile> {
                               ),
                             ),
                           ),
-                          Text(
-                            widget.studentModel.name,
-                            style: GoogleFonts.gildaDisplay(fontSize: 20),
+                          Container(
+                            width: Get.width * 0.7,
+                            child: Text(
+                              widget.studentModel.name,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 50,
                           ),
                           Text(
                             widget.studentModel.name,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 12),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           Container(
                             width: 100,
@@ -98,14 +104,14 @@ class _StudentProfileState extends State<StudentProfile> {
                             ),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           Text(
                             widget.studentModel.name,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 12),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           Container(
                             width: 100,
@@ -125,13 +131,6 @@ class _StudentProfileState extends State<StudentProfile> {
                                 width: 1,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            widget.studentModel.name,
-                            style: TextStyle(fontSize: 20),
                           ),
                           SizedBox(
                             height: 30,
@@ -158,9 +157,12 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
                                         ],
                                       ),
-                                      Text(widget.studentModel.name,
-                                          style:
-                                              TextStyle(color: Colors.black)),
+                                      Container(
+                                        width: 200,
+                                        child: Text(widget.studentModel.name,
+                                            style:
+                                                TextStyle(color: Colors.black)),
+                                      ),
                                     ],
                                   ),
                                   SizedBox(height: 10),
@@ -181,9 +183,12 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
                                         ],
                                       ),
-                                      Text(widget.studentModel.name,
-                                          style:
-                                              TextStyle(color: Colors.black)),
+                                      Container(
+                                        width: 200,
+                                        child: Text(widget.studentModel.name,
+                                            style:
+                                                TextStyle(color: Colors.black)),
+                                      ),
                                     ],
                                   ),
                                   SizedBox(height: 10),
@@ -204,9 +209,13 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
                                         ],
                                       ),
-                                      Text(widget.studentModel.name,
-                                          style:
-                                              TextStyle(color: Colors.black)),
+                                      Container(
+                                        width: 200,
+                                        child: Text(
+                                            widget.studentModel.photoUrl,
+                                            style:
+                                                TextStyle(color: Colors.black)),
+                                      ),
                                     ],
                                   ),
                                   SizedBox(height: 10),
@@ -227,9 +236,12 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
                                         ],
                                       ),
-                                      Text(widget.studentModel.name,
-                                          style:
-                                              TextStyle(color: Colors.black)),
+                                      Container(
+                                        width: 200,
+                                        child: Text(widget.studentModel.name,
+                                            style:
+                                                TextStyle(color: Colors.black)),
+                                      ),
                                     ],
                                   )
                                 ],
@@ -249,10 +261,14 @@ class _StudentProfileState extends State<StudentProfile> {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
+                        IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                            )),
                         SizedBox(
                           width: 10,
                         ),

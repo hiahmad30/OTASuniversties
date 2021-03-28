@@ -20,7 +20,7 @@ class _AllStudentsState extends State<AllStudents> {
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
         status: 'pending',
-        name: 'Mohamed Abdelkader A..',
+        name: 'MOHAMMAD ISSAM MOHAMMAD ABU FARHAH',
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
         status: 'pending',
@@ -156,7 +156,12 @@ class _AllStudentsState extends State<AllStudents> {
                       SizedBox(
                         width: 20,
                       ),
-                      Text(studentModel.name)
+                      Container(
+                          width: 150,
+                          child: Text(
+                            studentModel.name,
+                            overflow: TextOverflow.fade,
+                          ))
                     ],
                   ),
                 ),
