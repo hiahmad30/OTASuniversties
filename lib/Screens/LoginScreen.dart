@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:otasuniversties/Resources.dart';
 import 'package:otasuniversties/Screens/Widgets/ButtomBar.dart';
@@ -16,6 +17,8 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: AppColors.primaryColor,
         body: Stack(
           children: [
+            SvgPicture.asset('assets/back.svg',
+                width: Get.width, fit: BoxFit.fill),
             Align(
               alignment: Alignment.bottomRight,
               child: Container(
@@ -145,20 +148,22 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 15.0, left: 10, right: 10),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        height: 50,
-                        child: RaisedButton(
-                          textColor: Colors.white,
-                          color: AppColors.primaryColor,
-                          child: Text(
-                            "Sign In",
-                          ),
-                          onPressed: () {
-                            Get.to(BottomBarPage());
-                          },
-                          shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(10.0),
+                      child: Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          height: 50,
+                          child: RaisedButton(
+                            textColor: Colors.white,
+                            color: AppColors.primaryColor,
+                            child: Text(
+                              "Sign In",
+                            ),
+                            onPressed: () {
+                              Get.to(() => BottomBarPage());
+                            },
+                            shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(10.0),
+                            ),
                           ),
                         ),
                       ),

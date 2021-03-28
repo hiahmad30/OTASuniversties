@@ -3,7 +3,7 @@ import 'package:otasuniversties/Resources.dart';
 
 import '../AllStudents.dart';
 import '../HomePage.dart';
-import '../Notifications.dart';
+import '../Notification.dart';
 import '../StatePage.dart';
 
 class BottomBarPage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _BottomBarPageState extends State<BottomBarPage> {
     HomePage(),
     StatePage(),
     AllStudents(),
-    Notifications(),
+    NotificationPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -58,7 +58,10 @@ class _BottomBarPageState extends State<BottomBarPage> {
               child: Icon(Icons.home_rounded, color: AppColors.primaryColor),
             ),
             icon: new Icon(Icons.home_rounded, color: Colors.grey),
-            title: Text('Home'),
+            title: Text(
+              'Home',
+              style: TextStyle(color: Colors.black),
+            ),
             // label: 'Home'
           ),
           BottomNavigationBarItem(

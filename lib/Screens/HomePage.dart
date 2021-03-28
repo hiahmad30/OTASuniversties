@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:otasuniversties/Screens/Widgets/GetCalender.dart';
 import '../Resources.dart';
 import 'AllStudents.dart';
-import 'Notifications.dart';
+import 'Notification.dart';
 import 'StatePage.dart';
 import 'Widgets/chartWidget.dart';
 
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     HomePage(),
     StatePage(),
     AllStudents(),
-    Notifications(),
+    NotificationPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -270,7 +271,10 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getCard(int cardno, String text, String figure) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        _pickDate(context);
+        // Get.to(() => Get.);
+      },
       child: Container(
         height: 100,
         width: 100,
@@ -319,5 +323,19 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  DateTime pickedDate = DateTime.now();
+  _pickDate(BuildContext context) async {
+    DateTime date = await showDatePicker(
+      context: context,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+      initialDate: pickedDate,
+    );
+    if (date != null)
+      setState(() {
+        pickedDate = date;
+      });
   }
 }
