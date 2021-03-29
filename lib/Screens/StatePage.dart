@@ -40,6 +40,12 @@ class _StatePageState extends State<StatePage> {
       'icon': 'assets/statsicon.png',
       'figure': '1200',
       'color': AppColors.c5Color
+    },
+    {
+      'name': 'Awaiting Final Acceptance',
+      'icon': 'assets/statsicon.png',
+      'figure': '1200',
+      'color': AppColors.c5Color
     }
   ];
   @override
@@ -185,7 +191,7 @@ class _StatePageState extends State<StatePage> {
                           return _getCard2(cardModel[index]);
                         },
                         staggeredTileBuilder: (index) =>
-                            StaggeredTile.count(2, index.isEven ? 2 : 3),
+                            StaggeredTile.count(2, index.isEven ? 2 : 2.3),
                       ),
                     ),
                   ],
@@ -195,88 +201,6 @@ class _StatePageState extends State<StatePage> {
           ]),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: _currentIndex,
-      //   onTap: (int index) {
-      //     setState(() {
-      //       _onItemTapped(index);
-      //     });
-      //   },
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       activeIcon: ShaderMask(
-      //         shaderCallback: (Rect bounds) {
-      //           return RadialGradient(
-      //             center: Alignment.topLeft,
-      //             radius: 0.5,
-      //             colors: <Color>[
-      //               Colors.greenAccent[200],
-      //               Colors.blueAccent[200]
-      //             ],
-      //             tileMode: TileMode.repeated,
-      //           ).createShader(bounds);
-      //         },
-      //         child: Icon(Icons.home_rounded),
-      //       ),
-      //       icon: new Icon(Icons.home_rounded, color: Colors.grey),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       activeIcon: ShaderMask(
-      //         shaderCallback: (Rect bounds) {
-      //           return RadialGradient(
-      //             center: Alignment.topLeft,
-      //             radius: 1.0,
-      //             colors: <Color>[
-      //               Colors.greenAccent[200],
-      //               Colors.blueAccent[200]
-      //             ],
-      //             tileMode: TileMode.mirror,
-      //           ).createShader(bounds);
-      //         },
-      //         child: Icon(Icons.monitor),
-      //       ),
-      //       icon: Icon(Icons.monitor, color: Colors.grey),
-      //       label: 'Stats',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       activeIcon: ShaderMask(
-      //         shaderCallback: (Rect bounds) {
-      //           return RadialGradient(
-      //             center: Alignment.topLeft,
-      //             radius: 1.0,
-      //             colors: <Color>[
-      //               Colors.greenAccent[200],
-      //               Colors.blueAccent[200]
-      //             ],
-      //             tileMode: TileMode.mirror,
-      //           ).createShader(bounds);
-      //         },
-      //         child: Icon(Icons.account_circle),
-      //       ),
-      //       icon: Icon(Icons.account_circle, color: Colors.grey),
-      //       label: 'Students',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       // activeIcon: ShaderMask(
-      //       //   shaderCallback: (Rect bounds) {
-      //       //     return RadialGradient(
-      //       //       center: Alignment.topLeft,
-      //       //       radius: 1.0,
-      //       //       colors: <Color>[
-      //       //         Colors.greenAccent[200],
-      //       //         Colors.blueAccent[200]
-      //       //       ],
-      //       //       tileMode: TileMode.mirror,
-      //       //     ).createShader(bounds);
-      //       //   },
-      //       //   child: Icon(Icons.notifications_outlined),
-      //       // ),
-      //       icon: Icon(Icons.notifications_outlined, color: Colors.grey),
-      //       label: 'Notifications',
-      //     ),
-      //   ],
-      // ),
     );
   }
 
@@ -298,22 +222,27 @@ class _StatePageState extends State<StatePage> {
           ),
           child: Padding(
             padding: const EdgeInsets.only(
-                top: 8.0, right: 20, left: 20, bottom: 40),
+                top: 8.0, right: 10, left: 10, bottom: 40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 70,
+                      width: 90,
                       child: Text(
                         cardMap['name'],
-                        style: TextStyle(color: AppColors.cardTextColor),
+                        style: TextStyle(
+                            color: AppColors.cardTextColor, fontSize: 17),
                       ),
                     ),
-                    Image.asset(cardMap['icon']),
+                    Image.asset(
+                      cardMap['icon'],
+                      width: 40,
+                    ),
                   ],
                 ),
                 Text(
@@ -321,7 +250,7 @@ class _StatePageState extends State<StatePage> {
                   style: TextStyle(
                       color: AppColors.cardTextColor,
                       fontWeight: FontWeight.bold,
-                      fontSize: 30),
+                      fontSize: 35),
                 )
               ],
             ),

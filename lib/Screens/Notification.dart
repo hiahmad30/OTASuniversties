@@ -15,20 +15,24 @@ class _NotificationPageState extends State<NotificationPage> {
   List<NotificationModel> demonotification = [
     NotificationModel(
         status: 'paid',
+        photoUrl: 'https://picsum.photos/id/237/200/300',
         notification: 'Mohamed Abdelkader A..',
-        photoUrl: 'https://picsum.photos/id/237/200/300'),
+        discription: 'New payment - 12/05/2021'),
     NotificationModel(
-        status: 'pending',
+        status: 'paid',
+        photoUrl: 'https://picsum.photos/id/237/200/300',
         notification: 'Mohamed Abdelkader A..',
-        photoUrl: 'https://picsum.photos/id/237/200/300'),
+        discription: 'New payment - 12/05/2021'),
     NotificationModel(
-        status: 'pending',
+        status: 'paid',
+        photoUrl: 'https://picsum.photos/id/237/200/300',
         notification: 'Mohamed Abdelkader A..',
-        photoUrl: 'https://picsum.photos/id/237/200/300'),
+        discription: 'New payment - 12/05/2021'),
     NotificationModel(
-        status: 'pending',
+        status: 'paid',
+        photoUrl: 'https://picsum.photos/id/237/200/300',
         notification: 'Mohamed Abdelkader A..',
-        photoUrl: 'https://picsum.photos/200/300'),
+        discription: 'New payment - 12/05/2021'),
   ];
 
   @override
@@ -47,7 +51,24 @@ class _NotificationPageState extends State<NotificationPage> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Container(
-                      child: Image.asset('assets/logo.png'),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Image.asset(
+                              'assets/log2.png',
+                              width: Get.width * 0.3,
+                            ),
+                          ),
+                          Text('NİŞANTAŞI',
+                              style: GoogleFonts.capriola(
+                                  color: AppColors.primaryColor, fontSize: 25),
+                              textAlign: TextAlign.center),
+                          Text('ÜNİVERSİTESİ',
+                              style: TextStyle(
+                                  color: AppColors.primaryColor, fontSize: 14),
+                              textAlign: TextAlign.center)
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
@@ -230,15 +251,13 @@ class _NotificationPageState extends State<NotificationPage> {
     );
   }
 
-  getnotifCard(NotificationModel studentModel) {
+  getnotifCard(NotificationModel notificationModel) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-        onTap: () {
-          // Get.to(() => ());
-        },
+        onTap: () {},
         child: Container(
-          height: 50,
+          height: 60,
           color: AppColors.listColor,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -251,50 +270,81 @@ class _NotificationPageState extends State<NotificationPage> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(80.0),
-                        child: studentModel.photoUrl != null
+                        child: notificationModel.photoUrl != null
                             ? Image.network(
-                                studentModel.photoUrl,
+                                notificationModel.photoUrl,
                                 width: 30,
                                 height: 30,
                                 fit: BoxFit.cover,
                               )
                             : Container(
                                 child: Icon(Icons.no_photography),
-                                width: 80,
-                                height: 80,
+                                width: 30,
+                                height: 30,
                               ),
                       ),
                       SizedBox(
                         width: 20,
                       ),
-                      Text(studentModel.notification)
+                      Container(
+                          width: 200,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                notificationModel.discription,
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 8),
+                              ),
+                              Text(
+                                notificationModel.notification,
+                                overflow: TextOverflow.fade,
+                              ),
+                            ],
+                          ))
                     ],
                   ),
                 ),
                 Row(
                   children: [
                     Container(
+                      height: 20,
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5),
                           child: Text(
-                            studentModel.status,
+                            notificationModel.status,
+                            style: TextStyle(
+                              fontSize: 8,
+                              color: notificationModel.status == 'paid'
+                                  ? Colors.green
+                                  : notificationModel.status ==
+                                          'Awaiting Cond. Acceptance'
+                                      ? Color(0xffC15614)
+                                      : Colors.grey,
+                            ),
                           ),
                         ),
                       ),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                         color: Colors.white,
                         border: Border.all(
-                          // color: Colors.green,
+                          color: notificationModel.status == 'paid'
+                              ? Colors.green
+                              : notificationModel.status ==
+                                      'Awaiting Cond. Acceptance'
+                                  ? Color(0xffC15614)
+                                  : Colors.grey,
                           width: 1,
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 10,
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Color(0xff9C9F98),
+                      size: 20,
                     ),
-                    Icon(Icons.arrow_forward_ios),
                   ],
                 ),
               ],

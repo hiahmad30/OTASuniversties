@@ -85,12 +85,21 @@ class _StudentProfileState extends State<StudentProfile> {
                             height: 15,
                           ),
                           Container(
-                            width: 100,
+                            width: 150,
                             child: Center(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   widget.studentModel.status,
+                                  style: TextStyle(
+                                    fontSize: 8,
+                                    color: widget.studentModel.status == 'paid'
+                                        ? Colors.green
+                                        : widget.studentModel.status ==
+                                                'Awaiting Cond. Acceptance'
+                                            ? Color(0xffC15614)
+                                            : Colors.grey,
+                                  ),
                                 ),
                               ),
                             ),
@@ -98,6 +107,12 @@ class _StudentProfileState extends State<StudentProfile> {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
                               border: Border.all(
+                                color: widget.studentModel.status == 'paid'
+                                    ? Colors.green
+                                    : widget.studentModel.status ==
+                                            'Awaiting Cond. Acceptance'
+                                        ? Color(0xffC15614)
+                                        : Colors.grey,
                                 // color: Colors.green,
                                 width: 1,
                               ),
@@ -114,12 +129,21 @@ class _StudentProfileState extends State<StudentProfile> {
                             height: 15,
                           ),
                           Container(
-                            width: 100,
+                            width: 150,
                             child: Center(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   widget.studentModel.status,
+                                  style: TextStyle(
+                                    fontSize: 8,
+                                    color: widget.studentModel.status == 'paid'
+                                        ? Colors.green
+                                        : widget.studentModel.status ==
+                                                'Awaiting Cond. Acceptance'
+                                            ? Color(0xffC15614)
+                                            : Colors.grey,
+                                  ),
                                 ),
                               ),
                             ),
@@ -127,7 +151,12 @@ class _StudentProfileState extends State<StudentProfile> {
                               borderRadius: BorderRadius.circular(10),
                               color: Colors.white,
                               border: Border.all(
-                                // color: Colors.green,
+                                color: widget.studentModel.status == 'paid'
+                                    ? Colors.green
+                                    : widget.studentModel.status ==
+                                            'Awaiting Cond. Acceptance'
+                                        ? Color(0xffC15614)
+                                        : Colors.grey,
                                 width: 1,
                               ),
                             ),
@@ -157,12 +186,9 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
                                         ],
                                       ),
-                                      Container(
-                                        width: 200,
-                                        child: Text(widget.studentModel.name,
-                                            style:
-                                                TextStyle(color: Colors.black)),
-                                      ),
+                                      Text(widget.studentModel.passport,
+                                          style:
+                                              TextStyle(color: Colors.black)),
                                     ],
                                   ),
                                   SizedBox(height: 10),
@@ -211,8 +237,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                       ),
                                       Container(
                                         width: 200,
-                                        child: Text(
-                                            widget.studentModel.photoUrl,
+                                        child: Text(widget.studentModel.email,
                                             style:
                                                 TextStyle(color: Colors.black)),
                                       ),
@@ -238,7 +263,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                       ),
                                       Container(
                                         width: 200,
-                                        child: Text(widget.studentModel.name,
+                                        child: Text(widget.studentModel.address,
                                             style:
                                                 TextStyle(color: Colors.black)),
                                       ),

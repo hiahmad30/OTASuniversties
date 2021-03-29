@@ -49,8 +49,23 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        child: Image.asset('assets/logo.png'),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Image.asset(
+                              'assets/log2.png',
+                              width: Get.width * 0.4,
+                            ),
+                          ),
+                          Text('NİŞANTAŞI',
+                              style: GoogleFonts.capriola(
+                                  color: AppColors.primaryColor, fontSize: 25),
+                              textAlign: TextAlign.center),
+                          Text('ÜNİVERSİTESİ',
+                              style: TextStyle(
+                                  color: AppColors.primaryColor, fontSize: 14),
+                              textAlign: TextAlign.center)
+                        ],
                       ),
                     ),
                     Padding(
@@ -128,22 +143,27 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Container(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.arrow_drop_down,
-                                ),
-                                Container(
-                                  child: Text(
+                        InkWell(
+                          onTap: () {
+                            _pickDate(context);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(7.0),
+                            child: Container(
+                              width: 100,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.arrow_drop_down,
+                                    color: Colors.grey,
+                                  ),
+                                  Text(
                                     'This Month',
                                     style: TextStyle(
                                         color: AppColors.primaryColor),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -218,7 +238,6 @@ class _HomePageState extends State<HomePage> {
   Widget _getCard(int cardno, String text, String figure) {
     return InkWell(
       onTap: () {
-        _pickDate(context);
         // Get.to(() => Get.);
       },
       child: Container(

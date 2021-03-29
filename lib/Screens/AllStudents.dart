@@ -16,18 +16,39 @@ class _AllStudentsState extends State<AllStudents> {
   List<StudentModel> demoStudents = [
     StudentModel(
         status: 'pending',
+        counter: 1,
+        address:
+            'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
+        email: 'example@gmail.com',
+        passport: 'XR33442',
         name: 'Mohamed Abdelkader A..',
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
-        status: 'pending',
+        status: 'Pending Review',
+        counter: 0,
         name: 'MOHAMMAD ISSAM MOHAMMAD ABU FARHAH',
+        address:
+            'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
+        email: 'example@gmail.com',
+        passport: 'XR33442',
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
-        status: 'pending',
+        status: 'Awaiting Cond. Acceptance',
+        counter: 0,
+        degree: "Bachelor of Business Administration (English)",
         name: 'Mohamed Abdelkader A..',
+        address:
+            'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
+        email: 'example@gmail.com',
+        passport: 'XR33442',
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
-        status: 'pending',
+        status: 'Awaiting Final Acceptance',
+        counter: 2,
+        address:
+            'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
+        email: 'example@gmail.com',
+        passport: 'XR33442',
         name: 'Mohamed Abdelkader A..',
         photoUrl: 'https://picsum.photos/200/300'),
   ];
@@ -83,7 +104,7 @@ class _AllStudentsState extends State<AllStudents> {
                         padding:
                             EdgeInsets.only(top: 15.0, left: 10, right: 10),
                         child: Container(
-                          width: Get.width * 0.8,
+                          width: Get.width * 0.83,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
@@ -93,12 +114,18 @@ class _AllStudentsState extends State<AllStudents> {
                             child: TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.search),
+                                prefixStyle:
+                                    TextStyle(color: AppColors.primaryColor),
                                 hintStyle: GoogleFonts.rubik(
+                                  color: Color(0xff881832).withOpacity(0.24),
                                   fontSize: 10,
                                 ),
                                 hintText:
                                     "Search by Student name or Passport ID…",
                                 border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: AppColors.primaryColor,
+                                  ),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                               ),
@@ -149,15 +176,16 @@ class _AllStudentsState extends State<AllStudents> {
                               )
                             : Container(
                                 child: Icon(Icons.no_photography),
-                                width: 80,
-                                height: 80,
+                                width: 30,
+                                height: 30,
                               ),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       Container(
-                          width: 150,
+                          width: 120,
+                          height: 40,
                           child: Text(
                             studentModel.name,
                             overflow: TextOverflow.fade,
@@ -168,27 +196,49 @@ class _AllStudentsState extends State<AllStudents> {
                 Row(
                   children: [
                     Container(
+                      height: 20,
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.only(left: 5.0, right: 5),
                           child: Text(
                             studentModel.status,
+                            style: TextStyle(
+                              fontSize: 8,
+                              color: studentModel.status == 'paid'
+                                  ? Colors.green
+                                  : studentModel.status ==
+                                          'Awaiting Cond. Acceptance'
+                                      ? Color(0xffC15614)
+                                      : Colors.grey,
+                            ),
                           ),
                         ),
                       ),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(7),
                         color: Colors.white,
                         border: Border.all(
-                          // color: Colors.green,
+                          color: studentModel.status == 'paid'
+                              ? Colors.green
+                              : studentModel.status ==
+                                      'Awaiting Cond. Acceptance'
+                                  ? Color(0xffC15614)
+                                  : Colors.grey,
                           width: 1,
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 10,
+                    studentModel.counter > 0
+                        ? Container(
+                            width: 20,
+                            child: Text('+' + studentModel.counter.toString(),
+                                style: TextStyle(color: Color(0xff9C9F98))))
+                        : Container(),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Color(0xff9C9F98),
+                      size: 20,
                     ),
-                    Icon(Icons.arrow_forward_ios),
                   ],
                 ),
               ],
