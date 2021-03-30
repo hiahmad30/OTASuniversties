@@ -54,8 +54,8 @@ class _NotificationPageState extends State<NotificationPage> {
                       child: Column(
                         children: [
                           Container(
-                            child: Image.asset(
-                              'assets/log2.png',
+                            child: SvgPicture.asset(
+                              'assets/logo3.svg',
                               width: Get.width * 0.3,
                             ),
                           ),
