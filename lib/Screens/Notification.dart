@@ -51,23 +51,9 @@ class _NotificationPageState extends State<NotificationPage> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            child: SvgPicture.asset(
-                              'assets/logo3.svg',
-                              width: Get.width * 0.3,
-                            ),
-                          ),
-                          Text('NİŞANTAŞI',
-                              style: GoogleFonts.capriola(
-                                  color: AppColors.primaryColor, fontSize: 25),
-                              textAlign: TextAlign.center),
-                          Text('ÜNİVERSİTESİ',
-                              style: TextStyle(
-                                  color: AppColors.primaryColor, fontSize: 14),
-                              textAlign: TextAlign.center)
-                        ],
+                      child: Image.asset(
+                        'assets/logo2.png',
+                        width: 150,
                       ),
                     ),
                   ),

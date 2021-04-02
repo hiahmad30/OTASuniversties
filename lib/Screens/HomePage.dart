@@ -49,23 +49,11 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              'assets/log2.png',
-                              width: Get.width * 0.4,
-                            ),
-                          ),
-                          Text('NİŞANTAŞI',
-                              style: GoogleFonts.capriola(
-                                  color: AppColors.primaryColor, fontSize: 25),
-                              textAlign: TextAlign.center),
-                          Text('ÜNİVERSİTESİ',
-                              style: TextStyle(
-                                  color: AppColors.primaryColor, fontSize: 14),
-                              textAlign: TextAlign.center)
-                        ],
+                      child: Container(
+                        child: Image.asset(
+                          'assets/logo2.png',
+                          width: 150,
+                        ),
                       ),
                     ),
                     Padding(

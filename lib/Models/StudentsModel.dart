@@ -7,6 +7,7 @@ class StudentModel {
   String degree;
   String passport;
   String address;
+  String phone;
   StudentModel(
       {this.status,
       this.passport,
@@ -15,7 +16,8 @@ class StudentModel {
       this.email,
       this.name,
       this.address,
-      this.photoUrl});
+      this.photoUrl,
+      this.phone});
 
   StudentModel.fromJson(Map<String, dynamic> json) {
     this.status = json['status'];

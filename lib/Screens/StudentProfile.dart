@@ -78,7 +78,7 @@ class _StudentProfileState extends State<StudentProfile> {
                             height: 50,
                           ),
                           Text(
-                            widget.studentModel.name,
+                            widget.studentModel.degree,
                             style: TextStyle(fontSize: 12),
                           ),
                           SizedBox(
@@ -211,7 +211,8 @@ class _StudentProfileState extends State<StudentProfile> {
                                       ),
                                       Container(
                                         width: 200,
-                                        child: Text(widget.studentModel.name,
+                                        child: Text(widget.studentModel.phone,
+                                            textAlign: TextAlign.right,
                                             style:
                                                 TextStyle(color: Colors.black)),
                                       ),
@@ -235,8 +236,8 @@ class _StudentProfileState extends State<StudentProfile> {
                                           ),
                                         ],
                                       ),
-                                      Container(
-                                        width: 200,
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Text(widget.studentModel.email,
                                             style:
                                                 TextStyle(color: Colors.black)),
@@ -280,7 +281,7 @@ class _StudentProfileState extends State<StudentProfile> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 39.0, left: 30),
+                padding: const EdgeInsets.only(top: 35.0, left: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

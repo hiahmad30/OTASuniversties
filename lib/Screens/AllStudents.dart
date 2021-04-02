@@ -17,10 +17,12 @@ class _AllStudentsState extends State<AllStudents> {
     StudentModel(
         status: 'pending',
         counter: 1,
+        phone: '00905497109000',
         address:
             'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
         email: 'example@gmail.com',
         passport: 'XR33442',
+        degree: 'Bachelor of Science',
         name: 'Mohamed Abdelkader A..',
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
@@ -30,6 +32,7 @@ class _AllStudentsState extends State<AllStudents> {
         address:
             'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
         email: 'example@gmail.com',
+        degree: 'Bachelor of Science',
         passport: 'XR33442',
         photoUrl: 'https://picsum.photos/id/237/200/300'),
     StudentModel(
@@ -45,6 +48,7 @@ class _AllStudentsState extends State<AllStudents> {
     StudentModel(
         status: 'Awaiting Final Acceptance',
         counter: 2,
+        degree: 'Bachelor of Science',
         address:
             'Şehremini Mah, Ahmet Vefik Paşa Cd. No: 6/A, 34104 Fatih/İstanbul',
         email: 'example@gmail.com',
